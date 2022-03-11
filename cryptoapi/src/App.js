@@ -1,47 +1,55 @@
-import './App.css';
-import React, {useState, useEffect} from 'react';
-// import { axios } from 'axios';
+import "./App.css";
+import React, { useState, useEffect } from "react";
+import Coin from "./components/Coin/Coin";
+import axios from "axios";
 
-
-
+const apiURL =
+  "https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false";
 
 function App() {
+  const [coins, setCoins] = useState([]); 
+  const [search, setSearch] = useState("");
 
-  const apiURL = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false';
-  const [coins, setCoins] = useState([])
+  useEffect(() => {
+    axios.get(apiURL).then((res) => { //-- Llamada a la API con Axios --//
+      setCoins(res.data);
+    });
+  }, []);
 
-  useEffect(()=>{
-    console.log('funciona')
-    fetch(apiURL)
-      .then(res=>res.json())
-      .then (response =>{
-        const {data} = response
-        console.log(response)
-      })
-  
-  }, [])
+  const filteredCoins = coins.filter((coin) =>
+    coin.name.toLowerCase().includes(search.toLowerCase())
+  );
 
-
-
-
-//   useEffect (()=>{
-//     axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false`)
-//       .then(res=>{
-//         setCoins(res.data)
-//         console.log(res.data)
-//       })
-
-// })
-
-
-
+  const handleChange = (e) => {
+    setSearch(e.target.value);
+  };
 
   return (
-    <div className="App">
-      <section className='App-content'>
-        CRYPTOS
-      </section>
-     
+    <div className="coin-app">
+      <div className="coin-search">
+        <h1 className="coin-text">Busca una criptomoneda</h1>
+        <form>
+          <input
+            type="text"
+            placeholder="Buscar"
+            className="coin-input"
+            onChange={handleChange}
+          />
+        </form>
+      </div>
+      {filteredCoins.map((coin) => {
+        return (
+          <Coin
+            key={coin.id}
+            name={coin.name}
+            price={coin.current_price}
+            image={coin.image}
+            volume={coin.market_cap}
+            symbol={coin.symbol}
+            priceChange = {coin.price_change_percentage_24h}
+          />
+        );
+      })}
     </div>
   );
 }
