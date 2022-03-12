@@ -1,7 +1,14 @@
+<<<<<<< Updated upstream
 import './App.css';
 import React, {useState, useEffect} from 'react';
 // import { axios } from 'axios';
 
+=======
+import "./App.css";
+import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Route } from "wouter";
+>>>>>>> Stashed changes
 
 
 
@@ -37,11 +44,21 @@ function App() {
 
 
   return (
+<<<<<<< Updated upstream
     <div className="App">
       <section className='App-content'>
         CRYPTOS
       </section>
      
+=======
+    <div>
+      <Router>
+        <Navbar />        
+        <Route path="/" component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/contact" component={Contact} />
+      </Router>
+>>>>>>> Stashed changes
     </div>
   );
 }
