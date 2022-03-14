@@ -26,7 +26,7 @@ const useForm = (callback, validateInfo) =>{ //Creamos el customHook con dos val
         setIsSubmitting(true) //Al hacer submit y validar correctamente todos los campos, cambiamos el estado submit a true
     }
 
-    useEffect(()=>{ //Efecto que en caso de que las keys del objeto tenga 0 errores
+    useEffect(()=>{ //Efecto que en caso de que el objeto errors tenga una longitud = 0 (lo cual indicará que no hay errores) renderizará el componente isSubmitting cal responder la callback de forma positiva
         if (Object.keys(errors).length === 0 && isSubmitting){
             callback()
         }

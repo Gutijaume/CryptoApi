@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 export default function validateInfo(values) {
     let errors = {} //Creamos variable errores, que será un objeto vacío que llenaremos con los posibles errores

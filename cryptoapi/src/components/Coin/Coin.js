@@ -3,7 +3,7 @@ import "../Coin/styles.css";
 
 //-- Este es el componente de cada criptomoneda que mostrará los params que a mi me interesan --\\
 
-const Coin = ({ name, image, symbol, price, priceChange }) => {
+const Coin = ({ name, image, symbol, price, priceChange }) => { //Destructuring de los params que le queremos pasar
   return (
     <div className="coin-container">
       <div className="coin-row">

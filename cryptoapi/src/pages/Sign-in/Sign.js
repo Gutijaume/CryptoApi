@@ -1,19 +1,23 @@
 import React, { useState } from "react";
-import FormSuccess from "../../components/Signup/FormSuccess";
 import SignForm from "../../components/Signup/SignForm";
 import "../../components/Signup/styles.css";
-import {AiOutlineClose} from 'react-icons/ai'
+import { AiOutlineClose } from "react-icons/ai";
+import Login from "../../components/Signup/Login";
+import { Link } from "wouter";
 
 export default function Sign() {
-  const [isSubmitted] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false); //Creamaos un estado para saber y modificar si está registrado un usuario y que por defecto estará en false
 
   function submitForm() {
-    isSubmitted(true);
+    //Creamos una función que modificará el valor submited a true
+    setIsSubmitted(true);
   }
   return (
     <>
       <div className="form-container">
-        <span className="close-btn"><AiOutlineClose/></span>
+        <span className="close-btn">
+          <AiOutlineClose />
+        </span>
         <div className="form-content-left">
           <iframe
             className="form-img"
@@ -26,7 +30,7 @@ export default function Sign() {
             allowfullscreen
           ></iframe>
         </div>
-        {!isSubmitted ? <SignForm submitForm={submitForm} /> : <FormSuccess />}
+        {!isSubmitted ? <SignForm submitForm={submitForm} /> : <Login />}
       </div>
     </>
   );

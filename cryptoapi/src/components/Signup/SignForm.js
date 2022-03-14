@@ -2,10 +2,13 @@ import React from "react";
 import useForm from "./useForm";
 import validateInfo from "./validateInfo";
 import './styles.css'
+import {Link} from 'react-router-dom'
+import Login from "./Login";
 
 export default function SignForm({submitForm}) {
-  const {handleChange, values, handleSubmit, errors} = useForm(submitForm, validateInfo) //Usamos el customHook paraa exportarnos la función de cada input del botón de submit, los errores de validación así como los nuevos valores. Recibirá como props las validaciones.
+  const {handleChange, values, handleSubmit, errors} = useForm(submitForm, validateInfo) //Usamos el customHook para exportarnos la función de cada input del botón de submit, los errores de validación así como los nuevos valores. Recibirá como props las validaciones.
 
+ 
 
   return (
     <div className='form-content-right'>
@@ -62,12 +65,13 @@ export default function SignForm({submitForm}) {
         {errors.passwordConf && <p>{errors.passwordConf}</p>}
       </div>
       <button className='form-input-btn' type='submit'>
-        Sign up
+        Registra tu cuenta
       </button>
       <span className='form-input-login'>
-        ¿Ya dispones de una cuenta? <a href='#'>Login here</a>
+        ¿Ya dispones de una cuenta? <a href="#">Login here</a>
       </span>
     </form>
   </div>
 );
 }
+

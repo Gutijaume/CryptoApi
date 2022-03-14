@@ -6,6 +6,7 @@ import About from "./pages/About/About";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home/Home";
 import Sign from "./pages/Sign-in/Sign";
+import Login from "./components/Signup/Login";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" component={Home} />
         <Route path="/about" component={About} />
         <Route path="/sign" component={Sign} />
+        <Route path="/login" component={Login} />
       </Router>
     </div>
   );
