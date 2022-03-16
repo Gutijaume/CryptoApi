@@ -2,8 +2,7 @@ import React from "react";
 import useForm from "./useForm";
 import validateInfo from "./validateInfo";
 import './styles.css'
-import {Link} from 'react-router-dom'
-import Login from "./Login";
+
 
 export default function SignForm({submitForm}) {
   const {handleChange, values, handleSubmit, errors} = useForm(submitForm, validateInfo) //Usamos el customHook para exportarnos la función de cada input del botón de submit, los errores de validación así como los nuevos valores. Recibirá como props las validaciones.

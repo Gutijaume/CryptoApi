@@ -2,17 +2,14 @@ import Button from "@material-ui/core/Button";
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function SignBtn() {
+export default function DetailBtn() {
   return (
     <div className="nav-btn">
-<Link to="/sign">
+<Link to= {{pathname: `/detail`}}>
       <Button variant="contained" color="primary" type="button">
-        Sign in
+        Detalle
       </Button>
  </Link>
     </div>
   );
 }
-
-
-  

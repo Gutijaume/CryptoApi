@@ -7,8 +7,8 @@ export default function Header() {
       <div className="header-info">
         <p className="header-p1">NOMBRE</p>
         <p className="header-p2">SIMBOLO</p>
-        <p className="header-p3">PRECIO</p>
         <p className="header-p4">24h CHANGE</p>
+        <p className="header-p3">PRECIO</p>
       </div>
     </div>
   );
